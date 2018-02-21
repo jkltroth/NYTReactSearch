@@ -1,0 +1,20 @@
+{
+  "name": "nyt-react-search",
+  "version": "1.0.0",
+  "description": "A React-based New York Times Article Search application that utilizes Node, Express and MongoDB so users can save articles to read later.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkltroth/NYTReactSearch.git"
+  },
+  "author": "James Roth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jkltroth/NYTReactSearch/issues"
+  },
+  "homepage": "https://github.com/jkltroth/NYTReactSearch#readme"
+}
