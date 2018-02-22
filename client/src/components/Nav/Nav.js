@@ -1,19 +1,24 @@
 import React from "react";
+import AppBar from 'material-ui/AppBar';
+import FlatButton from 'material-ui/FlatButton';
 
-const Nav = () =>
-  <nav className="navbar navbar-inverse navbar-top">
-    <div className="container-fluid">
-      <div className="navbar-header">
-        <button type="button" className="collapsed navbar-toggle">
-          <span className="sr-only">Toggle navigation</span>
-          <span className="icon-bar" /> <span className="icon-bar" />
-          <span className="icon-bar" />
-        </button>
-        <a href="/" className="navbar-brand">
-          React Reading List
-        </a>
-      </div>
-    </div>
-  </nav>;
+function handleClick() {
+  // this needs to be updated to route to '/'
+  alert('onClick triggered on the title component');
+}
+
+const styles = {
+  title: {
+    cursor: 'pointer',
+  },
+};
+
+const Nav = () => (
+  <AppBar
+    title={<span style={styles.title}>New York Times Search</span>}
+    showMenuIconButton={false}
+    onTitleClick={handleClick}
+  />
+);
 
 export default Nav;
