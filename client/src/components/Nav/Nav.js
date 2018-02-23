@@ -1,6 +1,5 @@
 import React from "react";
 import AppBar from 'material-ui/AppBar';
-import FlatButton from 'material-ui/FlatButton';
 
 function handleClick() {
   // this needs to be updated to route to '/'
