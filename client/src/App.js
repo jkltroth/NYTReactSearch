@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Search from "./pages/Search";
+import Home from "./pages/Home";
 // import Detail from "./pages/Detail";
 // import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
@@ -12,7 +12,7 @@ const App = () =>
             <div>
                 <Nav />
                 <Switch>
-                    <Route exact path="/" component={Search} />
+                    <Route exact path="/" component={Home} />
                     {/* <Route exact path="/books" component={Books} />
         <Route exact path="/books/:id" component={Detail} />
         <Route component={NoMatch} /> */}
