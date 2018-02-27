@@ -6,5 +6,9 @@ export default {
   getArticles: function(searchCriteria) {
     return axios.get("https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" +
     authKey + "&q=" + searchCriteria);
+  },
+  saveArticle: function(articleData) {
+    return axios.post("/api/articles", articleData);
   }
 };
+ 

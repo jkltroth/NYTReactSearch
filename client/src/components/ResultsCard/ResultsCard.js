@@ -9,7 +9,7 @@ const ResultsCard = props =>
 
             {props.results.map(result =>
 
-                <Card key={result.web_url}>
+                <Card key={result._id}>
 
                     <CardTitle
                         title={result.headline.main}
@@ -22,15 +22,19 @@ const ResultsCard = props =>
                     <CardActions>
 
                         <RaisedButton
-                            // onClick={props.handleFormSubmit}
                             primary={true}
                             href={result.web_url}
                             target="_blank"
-                            label="Link to Article" />
+                            label="View Article" />
 
                         <RaisedButton
-                            // onClick={props.handleFormSubmit}
                             secondary={true}
+                            onClick={() => props.handleArticleSave({
+                                title: result.headline.main,
+                                snippet: result.snippet,
+                                date: result.pub_date,
+                                url: result.web_url
+                            })}
                             label="Save Article" />
 
                     </CardActions>
