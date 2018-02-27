@@ -56,6 +56,21 @@ class Home extends Component {
     };
   };
 
+  handleArticleSave = articleData => {
+    event.preventDefault();
+    API.saveArticle({
+      title: articleData.title,
+      snippet: articleData.snippet,
+      date: articleData.date,
+      url: articleData.url
+    })
+      .then(res => {
+        console.log(res)
+        console.log("Article Saved")
+      })
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <Container>
@@ -79,6 +94,7 @@ class Home extends Component {
         <Row>
           <Col>
             <ResultsCard
+              handleArticleSave={this.handleArticleSave}
               results={this.state.results}
             />
           </Col>
