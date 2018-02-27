@@ -8,6 +8,7 @@ export default {
     authKey + "&q=" + searchCriteria);
   },
   saveArticle: function(articleData) {
+    console.log("Made it to API")
     return axios.post("/api/articles", articleData);
   }
 };

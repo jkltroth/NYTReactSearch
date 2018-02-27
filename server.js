@@ -25,9 +25,7 @@ if (process.env.MONGODB_URI) {
 } else {
   // Connect to the Mongo DB
   mongoose.connect(
-    process.env.MONGODB_URI || "mongodb://localhost/nytreact", {
-      useMongoClient: true
-    }
+    process.env.MONGODB_URI || "mongodb://localhost/nytreact"
   );
 }
 // Start the API server

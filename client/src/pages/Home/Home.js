@@ -57,7 +57,9 @@ class Home extends Component {
   };
 
   handleArticleSave = articleData => {
-    event.preventDefault();
+
+    console.log(articleData);
+    // // event.preventDefault();
     API.saveArticle({
       title: articleData.title,
       snippet: articleData.snippet,
