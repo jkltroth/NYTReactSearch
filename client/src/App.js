@@ -13,9 +13,6 @@ const App = () =>
                 <Nav />
                 <Switch>
                     <Route exact path="/" component={Home} />
-                    {/* <Route exact path="/books" component={Books} />
-        <Route exact path="/books/:id" component={Detail} />
-        <Route component={NoMatch} /> */}
                 </Switch>
             </div>
         </Router>

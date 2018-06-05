@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Col, Row, Container } from "react-grid-system"
 import API from "../../utils/API";
 import SearchForm from "../../components/SearchForm";
 import ResultsCard from "../../components/ResultsCard";
 import { Card, CardActions, CardTitle, CardText } from 'material-ui/Card';
+import Grid from '@material-ui/core/Grid';
 
 class Home extends Component {
 
@@ -75,46 +75,42 @@ class Home extends Component {
 
   render() {
     return (
-      <Container>
+      <Grid
+        container
+        spacing={24}
+        justify='center'>
 
-        <Row>
-          <Col>
-            <SearchForm
-              handleSearchTermChange={this.handleSearchTermChange}
-              handleFrequencyChange={this.handleFrequencyChange}
-              handleStartYearChange={this.handleStartYearChange}
-              handleEndYearChange={this.handleEndYearChange}
-              handleFormSubmit={this.handleFormSubmit}
-              searchTerm={this.state.searchTerm}
-              frequencyValue={this.state.frequencyValue}
-              startYear={this.state.startYear}
-              endYear={this.state.endYear}
-            />
-          </Col>
-        </Row>
+        <Grid item xs={10} md={8}>
+          <SearchForm
+            handleSearchTermChange={this.handleSearchTermChange}
+            handleFrequencyChange={this.handleFrequencyChange}
+            handleStartYearChange={this.handleStartYearChange}
+            handleEndYearChange={this.handleEndYearChange}
+            handleFormSubmit={this.handleFormSubmit}
+            searchTerm={this.state.searchTerm}
+            frequencyValue={this.state.frequencyValue}
+            startYear={this.state.startYear}
+            endYear={this.state.endYear}
+          />
 
-        <Row>
-          <Col>
-            <ResultsCard
-              handleArticleSave={this.handleArticleSave}
-              results={this.state.results}
-            />
-          </Col>
-        </Row>
+        </Grid>
+        <Grid item xs={10} md={8}>
+          <ResultsCard
+            handleArticleSave={this.handleArticleSave}
+            results={this.state.results}
+          />
 
-        <Row>
-          <Col>
-            <Card>
-              <CardTitle title="Saved Articles" />
-              <CardText>
+        </Grid>
+        <Grid item xs={10} md={8}>
+          <Card>
+            <CardTitle title="Saved Articles" />
+            <CardText>
 
-              </ CardText>
+            </ CardText>
 
-            </Card>
-          </Col>
-        </Row>
-
-      </Container>
+          </Card>
+        </Grid>
+      </Grid>
     );
 
   }
