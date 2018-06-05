@@ -9,7 +9,7 @@ class Home extends Component {
 
   state = {
     searchTerm: "",
-    frequencyValue: 1,
+    resultCountValue: 1,
     startYear: "",
     endYear: "",
     results: []
@@ -19,7 +19,7 @@ class Home extends Component {
     this.setState({ searchTerm: event.target.value });
   };
 
-  handleFrequencyChange = (event, index, frequencyValue) => this.setState({ frequencyValue });
+  handleResultCountChange = (event, index, resultCountValue) => this.setState({ resultCountValue });
 
   handleStartYearChange = event => {
     this.setState({ startYear: event.target.value });
@@ -50,7 +50,7 @@ class Home extends Component {
           }
 
           console.log(res.data.response.docs)
-          let searchResults = res.data.response.docs.slice(0,this.state.frequencyValue)
+          let searchResults = res.data.response.docs.slice(0,this.state.resultCountValue)
           this.setState({ results: searchResults });
         })
         .catch(err => console.log(err));
@@ -84,12 +84,12 @@ class Home extends Component {
         <Grid item xs={10} md={8}>
           <SearchForm
             handleSearchTermChange={this.handleSearchTermChange}
-            handleFrequencyChange={this.handleFrequencyChange}
+            handleResultCountChange={this.handleResultCountChange}
             handleStartYearChange={this.handleStartYearChange}
             handleEndYearChange={this.handleEndYearChange}
             handleFormSubmit={this.handleFormSubmit}
             searchTerm={this.state.searchTerm}
-            frequencyValue={this.state.frequencyValue}
+            resultCountValue={this.state.resultCountValue}
             startYear={this.state.startYear}
             endYear={this.state.endYear}
           />
