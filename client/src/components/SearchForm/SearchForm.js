@@ -22,10 +22,10 @@ const SearchForm = props =>
             <br />
             <SelectField
                 fullWidth={true}
-                value={props.frequencyValue}
-                onChange={props.handleFrequencyChange}
-                name="frequency"
-                floatingLabelText="Frequency"
+                value={props.resultCountValue}
+                onChange={props.handleResultCountChange}
+                name="resultCount"
+                floatingLabelText="Number of Results"
             >
                 <MenuItem value={1} primaryText="1" />
                 <MenuItem value={5} primaryText="5" />
@@ -38,7 +38,7 @@ const SearchForm = props =>
                 value={props.startYear}
                 onChange={props.handleStartYearChange}
                 name="startYear"
-                hintText="Start Year (Optional):"
+                hintText="Publication Start Year (Optional):"
             /><br />
 
             <br />
@@ -46,7 +46,7 @@ const SearchForm = props =>
                 value={props.endYear}
                 onChange={props.handleEndYearChange}
                 name="endYear"
-                hintText="End Year (Optional):"
+                hintText="Publication End Year (Optional):"
             /><br />
 
         </ CardText>
