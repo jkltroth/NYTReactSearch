@@ -50,7 +50,8 @@ class Home extends Component {
           }
 
           console.log(res.data.response.docs)
-          this.setState({ results: res.data.response.docs });
+          let searchResults = res.data.response.docs.slice(0,this.state.frequencyValue)
+          this.setState({ results: searchResults });
         })
         .catch(err => console.log(err));
     };
