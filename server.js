@@ -28,6 +28,8 @@ if (process.env.MONGODB_URI) {
     process.env.MONGODB_URI || "mongodb://localhost/nytreact"
   );
 }
+
+console.log(process.env.PORT)
 // Start the API server
 app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
