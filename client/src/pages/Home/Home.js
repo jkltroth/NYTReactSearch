@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import SearchForm from "../../components/SearchForm";
 import ResultsCard from "../../components/ResultsCard";
-import { Card, CardActions, CardTitle, CardText } from 'material-ui/Card';
+import SavedArticlesCard from "../../components/SavedArticlesCard";
 import Grid from '@material-ui/core/Grid';
 
 class Home extends Component {
@@ -12,8 +12,13 @@ class Home extends Component {
     resultCountValue: 1,
     startYear: "",
     endYear: "",
-    results: []
+    results: [],
+    savedArticles: []
   };
+
+  componentDidMount() {
+    this.loadSavedArticles();
+  }
 
   handleSearchTermChange = event => {
     this.setState({ searchTerm: event.target.value });
@@ -50,7 +55,7 @@ class Home extends Component {
           }
 
           console.log(res.data.response.docs)
-          let searchResults = res.data.response.docs.slice(0,this.state.resultCountValue)
+          let searchResults = res.data.response.docs.slice(0, this.state.resultCountValue)
           this.setState({ results: searchResults });
         })
         .catch(err => console.log(err));
@@ -70,6 +75,20 @@ class Home extends Component {
       .then(res => {
         console.log(res)
         console.log("Article Saved")
+      })
+      .catch(err => console.log(err));
+  };
+
+  loadSavedArticles = () => {
+    API.getSavedArticles()
+      .then(res => {
+        if (res.data.status === "error") {
+          throw new Error(res.data.message);
+        }
+
+        console.log(res.data);
+        console.log("Loaded articles.")
+        this.setState({ savedArticles: res.data })
       })
       .catch(err => console.log(err));
   };
@@ -103,13 +122,10 @@ class Home extends Component {
 
         </Grid>
         <Grid item xs={10} md={8}>
-          <Card>
-            <CardTitle title="Saved Articles" />
-            <CardText>
-
-            </ CardText>
-
-          </Card>
+          <SavedArticlesCard
+          savedArticles={this.state.savedArticles}
+          />
+        
         </Grid>
       </Grid>
     );
